@@ -196,3 +196,38 @@ To make this initialiser available outside the class, we need to declare it in t
 ```objectivec
 -(instancetype)initWithName: (NSString*)name;
 ```
+
+**ENUMS**
+All Enums in Objective-C are of type NSInteger
+
+```objectivec
+#import <Foundation/Foundation.h>
+
+typedef NS_ENUM(NSInteger, Direction) {
+    North,
+    South,
+    East,
+    West
+};
+
+@interface Bedroom : NSObject
+
+@property (nonatomic) BOOL hasPrivateBath;
+@property (nonatomic) Direction dirWindowFaces;
+
+@end
+```
+
+**STRONG AND WEAK**
+`Strong` and `Weak` are property attributes as well. Pointers are `Strong` by default.
+
+`Strong` references are used when teh property is the primary responsibility of the class i.e is owned by the class. For example, the `frontBedroom` property is the primary responsibility of the House class.
+
+`Weak` references are used for properties that are teh primary responsibility of some other class.
+
+One should use `weak` when:
+
+- Property is a delegate
+- Property is a subview of the main view
+
+This is important to avoid memory cycles.
