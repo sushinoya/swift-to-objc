@@ -16,8 +16,8 @@
 
 
  Swift | Objective-C |
-| -------- | -------- | -------- |
- Swift uses Optionals and only they can be `nil`    | Any object can have a `nil` value.     |
+| -------- | -------- |
+| Swift uses Optionals and only they can be `nil`    | Any object can have a `nil` value. |
 
 Objective-C has no `NullPointerException` or any such consequence of using a nil pointer. 
 
@@ -31,9 +31,9 @@ NSLog(@"My name is %@", suyash);
 
 - **Mutability**
 
- Swift | Objective-C |
-| -------- | -------- | -------- |
- Constants are constant, variables vary, and by default we are encouraged to favor constants    | All object attributes are mutable by default     |
+|Swift | Objective-C |
+| -------- | -------- |
+| Constants are constant, variables vary, and by default we are encouraged to favor constants | All object attributes are mutable by default |
 
 Objective-C classes with limited mutability include all Foundation collections. For example, `NSStrings` are not mutable; to make a change to a string one must either make a new string or use `NSMutableString`. The same goes for `NSArray` and `NSMutableArray`, `NSDictionary` and `NSMutableDictionary`, `NSSet` and `NSMutableSet`, and the remaining classes which you can read about here.
 
@@ -44,8 +44,8 @@ Swift favours use of value types like structs while Objective-C favours referenc
 
 
  Swift | Objective-C |
-| -------- | -------- | -------- |
- Static Typing  | Both Static and Dynamic Typing     |
+| -------- | -------- |
+ Static Typing  | Both Static and Dynamic Typing |
 
 In Objective-C, the type of every object needs to be declared but sometimes, the type declared is `id`. `id` can take on any type essentially. A more meaningful type is only determined for the variable at runtime.
 
