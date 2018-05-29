@@ -142,3 +142,57 @@ To prevent this problem cause due to the object property referencing a variable 
 ```objectivec
 @property (nonatomic, copy) NSString *address;
 ```
+
+**METHOD DECLARATION**
+```objectivec
+-(returnType)methodName:(parameterType*) parameterName {
+    body;
+}
+```
+
+The `-` tells us that its an instance method
+
+```objectivec=
+-(Book)makeBookWithTitle:(NSString*)title
+                  author:(NSString*)author
+                    year:(int)year {
+    // Method Body
+}
+```
+
+
+**INITIALISATION**
+
+```objectivec
+House *myHouse = [[House alloc] init]
+```
+
+**WRITING A CUSTOM INITIALISER**
+
+```objectivec
+#import "House.h"
+
+@implementation Person
+
+-(instancetyoe)initWithName:(NSString*)name {
+    // Every initialisation method starts by calling init fmor its super class
+    self = [super init]
+    
+    // If initialised correctly
+    if(self) {
+        // Initialise with a copy of the name
+        _name = [name copy];
+        _height = 0;
+        _weight = 0;
+    }
+    
+    return self
+}
+@end
+```
+
+To make this initialiser available outside the class, we need to declare it in the public interface (Person.h) as well:
+
+```objectivec
+-(instancetype)initWithName: (NSString*)name;
+```
