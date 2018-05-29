@@ -88,3 +88,57 @@ if ([mysteryItem respondsToSelector:@selector(size)]) {
     NSLog("%@", [mysteryItem size]);
 }
 ```
+
+## Objective-C Syntax
+
+Every class is associated with two files:
+
+- Header file (.h): Holds the public interface.
+- Implementation file (.m): Holds the method implementations and private properties.
+
+**HEADER FILE EXAMPLE**
+```objectivec
+#import <Foundation/Foundation.h>
+
+@interface House : NSObject
+
+@property (nonatomic) NSString *address;
+@property (nonatomic) int numberOfBedrooms;
+@property (nonatomic) BOOL hasBathTub;
+
+@end
+```
+
+`Nonatomic` is a property attribute. Properties can either be atomic or nonatomic. This defines how the properties are handled in multithreading. Properties are atomic by default. 
+
+Other property attributes are `readonly`, `readwrite` and `copy`.
+
+If I wanted to allow mutating the `numberOfBedrooms` property only from whithin the class, I add/replace the following lines:
+
+```objectivec
+// In House.h
+@property (nonatomic, readonly) int numberOfBedrooms;
+
+// In House.m
+@property (nonatomic, readwrite) int numberOfBedrooms;
+```
+
+As for `copy`, its mostly used for `NSString` properties. Consider the following code:
+
+```objectivec
+NSMutableString *name = [[NSMutableString alloc] initWithString: @"Suyash"];
+
+Person *suyash = [[Person alloc] initWithName: suyash];
+NSLog(@"%@", suyash.name)
+// Output: Suyash
+
+[suyash appendString: @"Shekhar"];
+NSLog(@"%@", suyash.name)
+// Output: Suyash Shekhar
+```
+
+To prevent this problem cause due to the object property referencing a variable pointer, use `copy` such as:
+
+```objectivec
+@property (nonatomic, copy) NSString *address;
+```
